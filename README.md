@@ -1,4 +1,6 @@
 <div align="center">
+  <img src="banner.jpg" alt="Agent Credit Saver Banner" width="100%">
+  
   <h1>💸 Agent Credit Saver</h1>
   <p><b>Strict prompt guardrails to stop AI coding agents from burning your API credits.</b></p>
   
