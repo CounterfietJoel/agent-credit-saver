@@ -77,7 +77,4 @@ npx repomix
 This packs your entire repository into a single, token-optimized XML file that maximizes **Prompt Caching** (which can reduce Anthropic/Gemini API costs by up to 90%).
 
 ## 🤝 Contributing & Remixing
-If you find a prompt trick that saves even more tokens without degrading coding quality, open a Pull Request! Fork this repo, remix it for your specific tech stack (e.g., adding strict Next.js or Python boundaries), and share it with the community.
-
-## SEO Keywords (For Discoverability)
-`AI Agent`, `Claude Code`, `Cursor AI`, `Windsurf IDE`, `Token Optimization`, `Save API Credits`, `LLM Prompt Caching`, `Agentic Workflow`, `Reduce AI Costs`, `.cursorrules`, `Anthropic`.
+If you find a prompt trick that saves even more tokens without degrading coding quality, open a Pull Request! Fork this repo, adapt it for your specific tech stack (e.g., adding strict Next.js or Python boundaries), and share it with the community.
