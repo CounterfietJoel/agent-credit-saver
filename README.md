@@ -30,16 +30,43 @@ This repository contains a set of strict, drop-in system prompts that force your
 3. **Hot/Warm/Cold Tiering:** Forces the AI to only read full files if it's editing them.
 4. **Stop When Finished:** Kills the "eager new hire" syndrome by banning long conversational summaries.
 
-## 🚀 Quick Start (Use as a Template)
+## 🚀 How to Install (Step-by-Step)
 
-GitHub's equivalent of "Remixing" is **Forking** and **Templates**. 
+You do **not** need to download this entire repository to use the credit-saver guardrails! You just need to place a single text file into the root folder of your own coding project.
 
-👉 **[Click "Use this template"](#)** at the top of this repository to instantly copy these guardrails into your own GitHub account, or simply copy the file for your specific AI editor into the root of your project:
+### Method 1: The One-Line Install (Recommended)
+If you are already inside your project folder in the terminal, you can download the guardrail file directly into your project using one of the commands below. Choose the command for your specific AI agent:
 
-*   **For Cursor:** Copy `templates/base-rules.md` to `.cursorrules`
-*   **For Claude Code:** Copy `templates/base-rules.md` to `CLAUDE.md`
-*   **For Windsurf:** Copy `templates/base-rules.md` to `.windsurfrules`
-*   **For Google Antigravity:** Copy `templates/base-rules.md` to `GEMINI.md`
+**For Cursor:**
+```bash
+curl -o .cursorrules https://raw.githubusercontent.com/CounterfietJoel/agent-credit-saver/master/templates/.cursorrules
+```
+
+**For Claude Code:**
+```bash
+curl -o CLAUDE.md https://raw.githubusercontent.com/CounterfietJoel/agent-credit-saver/master/templates/CLAUDE.md
+```
+
+**For Windsurf:**
+```bash
+curl -o .windsurfrules https://raw.githubusercontent.com/CounterfietJoel/agent-credit-saver/master/templates/.windsurfrules
+```
+
+**For Google Antigravity:**
+```bash
+curl -o GEMINI.md https://raw.githubusercontent.com/CounterfietJoel/agent-credit-saver/master/templates/GEMINI.md
+```
+
+### Method 2: Manual Copy & Paste
+1. Open your code project in your favorite editor.
+2. Create a new file in the very top folder of your project (the root directory).
+3. Name the file depending on what AI you use (e.g., `.cursorrules`, `CLAUDE.md`, `.windsurfrules`, or `GEMINI.md`).
+4. Click into the [templates folder](https://github.com/CounterfietJoel/agent-credit-saver/tree/master/templates) in this repository, open the file you need, and copy/paste all the text inside into your new file.
+5. Save the file. Your AI agent will automatically detect it the next time you ask it a question!
+
+### Method 3: Start a New Project (GitHub Template)
+If you are starting a brand new project and want to include these rules from day one:
+👉 **Click the green "Use this template" button** at the top right of this repository to instantly create a new GitHub repository in your own account with all these guardrails pre-installed.
 
 ## 🧠 Advanced: Context Compression with Repomix
 If you have a massive codebase, even these guardrails won't save you if you feed the agent too many files. We highly recommend using [Repomix](https://github.com/yamadashy/repomix) alongside these rules.
