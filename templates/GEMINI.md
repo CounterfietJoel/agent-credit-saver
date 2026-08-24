@@ -1,23 +1,33 @@
 # GLOBAL AI EFFICIENCY RULES (CREDIT SAVER)
 
-You are operating under strict token-efficiency and cost-reduction constraints. You MUST follow these boundaries for every request:
+You are operating under strict token-efficiency, context-hygiene, and cost-reduction constraints. You MUST strictly follow these boundaries on every turn:
 
-## 1. One File. Four Boundaries.
-* **Write less:** Never output unchanged boilerplate code. Use unified diffs or specific line replacements where possible. Do not over-engineer or add features not explicitly requested.
-* **Follow the prompt:** Do not guess intent. If instructions are ambiguous, stop and ask the user.
-* **Check the work:** Verify your assumptions before writing code.
-* **Stop when finished:** Do not output long conversational summaries of the code you just wrote. Keep responses extremely brief (1-2 sentences).
+## 1. Surgical Edits & Zero Boilerplate
+* **Write targeted edits:** Never rewrite an entire file to change a few lines. Always use unified diffs, targeted line replacements, or surgical chunk edits where available.
+* **No speculative code:** Never add unrequested features, speculative helper utilities, or boilerplate comments.
+* **Confirm ambiguity:** If requirements are underspecified or ambiguous, stop and ask the user directly rather than guessing and generating wasted output.
 
-## 2. Compress Terminal Output
-When executing terminal commands (e.g., `npm`, test suites, build logs, `git`), you MUST limit the output you ingest. 
-* Pipe successful verbose output to `/dev/null` or `Out-Null`.
-* Severely limit stdout/stderr (e.g., `command | head -n 20`). 
-* NEVER ingest massive terminal logs into the context window.
+## 2. Cross-Platform Terminal Output Compression
+When executing terminal commands (e.g., package managers, builds, test suites, git commands), you MUST prevent massive stdout/stderr logs from polluting the context window:
+* **Silence successful verbose commands:**
+  - Linux/macOS (Bash/Zsh): `command > /dev/null 2>&1`
+  - Windows (PowerShell): `command | Out-Null`
+  - Windows (CMD): `command > nul 2>&1`
+* **Limit output length:**
+  - Linux/macOS: `command | head -n 20` or `command | tail -n 20`
+  - Windows (PowerShell): `command | Select-Object -First 20` or `command | Select-Object -Last 20`
+* **Error handling:** If a build or test fails, extract and inspect ONLY the relevant error messages and stack traces, never whole verbose logs.
 
 ## 3. Anti-Blind-Search Protocol
-Before using heavy search tools (`grep`, `find`) across an entire project, always look for a local architectural map (`README.md` or similar) in the project root. Do not blindly search the codebase. If you are lost, ask the user to point you to the correct file.
+* Always inspect root architectural files (`README.md`, `package.json`, directory maps) before running global search tools.
+* **Scope all searches:** Constrain searches (`grep`, `find`) to specific subdirectories or file extensions.
+* **Exclude vendor & build dirs:** NEVER run unconstrained recursive searches across `node_modules`, `dist`, `build`, `.next`, `target`, `.git`, or vendor cache directories.
 
-## 4. Hot/Warm/Cold Tiering
-* **HOT:** Only read the full contents of files you actually need to edit. 
-* **WARM:** For files you just need to understand the interface of, rely on semantic search or read ONLY the top imports/exports. 
-* **COLD:** Ignore unrelated files entirely.
+## 4. Hot / Warm / Cold Context Tiering
+* **HOT (Full Read):** Read the full file contents ONLY for files you actively plan to edit.
+* **WARM (Interface Only):** For dependencies, helper modules, or imports, view ONLY type signatures, function headers, or top-level exports.
+* **COLD (Ignore):** Completely ignore unrelated modules and assets.
+
+## 5. Zero-Fluff Responses
+* Keep conversational text extremely brief (1–2 sentences maximum upon completion).
+* NEVER output long conversational preamble or post-task summaries unless explicitly asked.
