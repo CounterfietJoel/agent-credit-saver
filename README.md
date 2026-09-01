@@ -127,6 +127,17 @@ This compiles your repository into a single, structured XML context map that max
 
 ---
 
+## 🎁 Bonus: Free LLM APIs for Zero-Cost Coding
+If you want to completely eliminate API bills for secondary tasks, background agents, and small scripts, check out the curated list of **[Awesome Free LLM APIs](https://github.com/mnfst/awesome-free-llm-apis)**.
+
+Top permanent free tiers for developers:
+- **Google Gemini:** Generous free rate limits for Gemini 2.5 Flash / Flash-Lite via [Google AI Studio](https://aistudio.google.com/app/apikey).
+- **Mistral AI:** \$10/month in free API credits via [Mistral Console](https://console.mistral.ai/api-keys).
+- **Groq:** Ultra-fast free inference for open-weight models like Llama 3.3 via [Groq Cloud](https://console.groq.com/keys).
+- **Cloudflare Workers AI:** 10,000 neurons/day free for 75+ open models.
+
+---
+
 ## 🤝 Contributing & Customization
 
 Have a domain-specific optimization or prompt trick for specific stacks (e.g., Python, Rust, Next.js, Kubernetes)? 
